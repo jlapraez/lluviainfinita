@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Lluvia de Te Amo</title>
+  <style>
+    body {
+      background: #121212;
+      overflow: hidden;
+      margin: 0;
+      height: 100vh;
+    }
+    .te-amo {
+      position: absolute;
+      color: #ff3576;
+      font-size: 2rem;
+      font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+      user-select: none;
+      pointer-events: none;
+      opacity: 0.8;
+      animation: fall 3s linear infinite;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(20deg);
+        opacity: 0.3;
+      }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const frases = ['Te amo', '❤️', 'Te amo mucho', 'Te quiero', '💖', 'Te adoro', '😘', 'Te amo'];
+    function crearTeAmo() {
+      const div = document.createElement('div');
+      div.className = 'te-amo';
+      div.textContent = frases[Math.floor(Math.random() * frases.length)];
+      div.style.left = Math.random() * 100 + 'vw';
+      div.style.top = '-2rem';
+      div.style.fontSize = (1 + Math.random() * 2) + 'rem';
+      div.style.animationDuration = (2 + Math.random() * 2) + 's';
+      document.body.appendChild(div);
+      setTimeout(() => div.remove(), 4000);
+    }
+    setInterval(crearTeAmo, 200);
+  </script>
+</body>
+</html>
